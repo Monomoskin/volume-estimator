@@ -13,9 +13,8 @@ CORS(app)
 EXCEL_FILE = "cells_data.xlsx"
 import os
 
-UPLOAD_FOLDER = "uploads"
-if not os.path.exists(UPLOAD_FOLDER):
-    os.makedirs(UPLOAD_FOLDER)
+UPLOAD_FOLDER = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'uploads')
+print(UPLOAD_FOLDER)
 # Función auxiliar: crea el archivo si no existe
 EXCEL_FILE = "datos.xlsx"
 

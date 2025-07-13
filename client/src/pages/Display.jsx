@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useLocation, useParams } from "react-router-dom";
-import { Spin, List, Image, Typography, message } from "antd";
-
+import { Spin, List, Image, Typography, message, Row, Col } from "antd";
+import "./styles.css";
 const { Title, Text } = Typography;
 
 export default function CellPhotos() {
@@ -29,29 +29,26 @@ export default function CellPhotos() {
   }, [cellId]);
 
   if (loading) return <Spin size="large" />;
-  if (!dataSource) return <div>No se encontró la célula</div>;
+  if (!dataSource) return <div>Cell not found!</div>;
 
   return (
     <div style={{ padding: 20 }}>
-      {/* <Title level={2}>Fotos de la célula: {cellData.name}</Title>
-      <Text>Fecha de creación: {cellData.created_at}</Text> */}
-
-      <List
-        itemLayout="vertical"
-        dataSource={dataSource}
-        renderItem={(photo, index) => (
-          <List.Item key={index}>
+      <div className="grid-container">
+        {dataSource.map((photo, index) => (
+          <div className="grid-item" key={index}>
             <Title level={4}>{photo.label}</Title>
-            <Text>Fecha: {photo.date}</Text>
+            <Text>Created At: {photo.date}</Text>
             <br />
-            <Text>Volumen: {photo.volume}</Text>
+            <Text>Estimated Volume: {photo.volume} ml</Text>
             <br />
-            {/* Para mostrar imagen, necesitas que tu backend sirva las imágenes o una URL accesible */}
-            {/* Por ejemplo si guardas la ruta o url de la imagen en el Excel, podrías hacer: */}
-            <Image src={`/api/uploads/${photo.label}`} alt={photo.label} />
-          </List.Item>
-        )}
-      />
+            <Image
+              src={`/api/uploads/${photo.label}`}
+              alt={photo.label}
+              // className="preview-image"
+            />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

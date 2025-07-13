@@ -50,30 +50,30 @@ const NewCell = () => {
             style={{ width: "120px", height: "40px" }}
             onClick={() => navigate("/")}
           >
-            Volver
+            Back
           </Button>
         }
         className="main-card"
         style={{ maxWidth: 600, margin: "0 auto" }}
       >
-        <Title level={3}>Agregar Nueva Célula</Title>
+        <Title level={3}>Add new cell</Title>
 
         <Input
-          placeholder="Nombre de la célula"
+          placeholder="Cell name"
           value={name}
           onChange={(e) => setName(e.target.value)}
           style={{ marginBottom: 16 }}
         />
 
         <Input
-          placeholder="ID de la célula"
+          placeholder="Cell ID"
           value={cellId}
           onChange={(e) => setCellId(e.target.value)}
           style={{ marginBottom: 16 }}
         />
 
         <DatePicker
-          placeholder="Fecha de creación"
+          placeholder="Creation date"
           value={date}
           onChange={setDate}
           format="YYYY-MM-DD"
@@ -87,7 +87,7 @@ const NewCell = () => {
           block
           loading={loading}
         >
-          Agregar Célula
+          Add Cell
         </Button>
       </Card>
     </div>
