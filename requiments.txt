@@ -39,7 +39,7 @@ Es recomendable crear un entorno virtual para el proyecto:
 python3 -m venv venv  # Crear el entorno virtual
 source venv/bin/activate  # Activar el entorno en macOS/Linux
 # Para Windows: venv\Scripts\activate
-pip install -r requirements.txt  # Instalar dependencias
+pip install -r prerequisites.txt  # Instalar dependencias
 ```
 
 Con esto, el entorno de desarrollo estará listo para entrenar y probar el modelo.
